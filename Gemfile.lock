@@ -106,6 +106,7 @@ GEM
       slop (~> 3.4)
     puma (3.6.2)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.1)
@@ -189,13 +190,16 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  httparty
   jbuilder (~> 2.5)
   jquery-rails
   jwt
   listen (~> 3.0.5)
   mongoid
+  nokogiri
   pry
   puma (~> 3.0)
+  rack-cors
   rails (~> 5.0.1)
   rb-readline
   sass-rails (~> 5.0)
