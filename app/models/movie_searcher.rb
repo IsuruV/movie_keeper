@@ -5,6 +5,10 @@ class MovieSearcher
     Tmdb::Api.key(api_key)
   end
 
+  def self.find_movie_detail(id)
+    self.new.set_movie(id)
+  end
+
   def latest
     Tmdb::Movie.latest
   end
@@ -28,14 +32,15 @@ class MovieSearcher
   def search_by_input(input)
     @search = Tmdb::Search.new
     @search.resource('movie')
-    @search.query(input).fetch[0,5]
+    @search.query(input).fetch
   end
 
   def set_movie(id)
     @movie = Tmdb::Movie.detail(id)
     @movie['trailers'] = self.movie_trailers(id)
-    @movie['cast'] = self.movie_cast(id)
-    @movie['similar_movies'] = self.movie_similar(id)
+    @movie['cast'] = self.movie_cast(id)[0,5]
+    @movie['similar_movies'] = self.movie_similar(id)[0,5]
+    # @movie['watch_links'] = self.get_links(self.movie['original_title'])
     @movie
   end
 
@@ -51,5 +56,8 @@ class MovieSearcher
     similar_movies = Tmdb::Movie.similar_movies(id)
   end
 
+  def get_links(title)
+    MovieLinkScraper.new(title).links[0,5]
+  end
 
 end
