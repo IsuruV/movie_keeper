@@ -17,8 +17,12 @@ class MovieLinkScraper
 
   def get_links
     self.links = []
+    begin
     self.doc.search('td .entry a').each do |row|
       self.links << row.attr('href')
+    end
+    rescue
+      self.links =['no links available']
     end
   end
 
