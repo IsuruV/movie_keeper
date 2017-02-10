@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   get '/movies/most_popular' => 'movies#most_popular'
   get '/movies/title/:title' => 'movies#by_title'
   post'/movies/search' => 'movies#search'
-
   get '/movies/:id' => 'movies#show'
+  post 'users/:user_id/movies/:movie_id' => 'movies#destroy'
 
-  resources :users
+  resources :users do
+    resources :movies
+  end
   resources :watchlists
   resources :comments
   devise_for :users, :controllers => {sessions: 'api/sessions', registrations: 'api/registrations'}

@@ -25,6 +25,7 @@ class User
   field :last_name
   field :fb_id
   field :token
+  embeds_many :movies, class_name: 'Movie'
 
   ## Confirmable
   # field :confirmation_token,   type: String

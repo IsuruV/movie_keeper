@@ -1,5 +1,30 @@
 class MoviesController < ApplicationController
-  before_filter :authenticate_user_from_token!, except: [:in_theaters, :highly_rated, :most_popular, :search, :show, :by_title]
+  before_filter :authenticate_user_from_token!, except: [:in_theaters, :highly_rated, :most_popular, :search, :show, :by_title, :create, :index, :destroy]
+
+  def create
+    user_id = params[:user_id]
+    @user = User.find_by(:fb_id => user_id)
+    @user.movies.find_or_create_by(movie_params)
+    respond_to do |format|
+      format.json {render json: @user.movies.to_json}
+    end
+  end
+
+  def index
+    @user = User.find_by(:fb_id => user_params)
+    respond_to do |format|
+      format.json {render json: @user.movies.to_json}
+    end
+  end
+
+  def destroy
+    # binding.pry
+    @user = User.find_by(:fb_id=> user_params)
+    @user.movies.where(movie_id: params[:movie_id]).delete
+    respond_to do |format|
+      format.json{render json: @user.movies.to_json}
+    end
+  end
 
   def in_theaters
     @in_theaters = MovieSearcher.new
@@ -44,6 +69,14 @@ class MoviesController < ApplicationController
     respond_to do |format|
       format.json{render json: @search.get_links(title)}
     end
+  end
+
+  private
+  def movie_params
+    params.require(:movie).permit(:movie_id, :title, :poster_path)
+  end
+  def user_params
+    params.require(:user_id)
   end
 
 end
