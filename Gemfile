@@ -39,9 +39,9 @@ gem 'pry'
 gem 'rb-readline'
 
 gem 'mongoid'
-gem 'bson_ext'
-gem 'devise'
-gem 'jwt'
+# gem 'bson_ext'
+# gem 'devise'
+# gem 'jwt'
 
 gem 'nokogiri'
 gem 'httparty'
