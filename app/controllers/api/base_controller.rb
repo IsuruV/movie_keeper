@@ -1,9 +1,7 @@
 class Api::BaseController < ActionController::Base
   include ActionController::ImplicitRender
   respond_to :json
-
-  before_filter :authenticate_user_from_token!
-
+  # before_filter :authenticate_user_from_token!
   protected
 
   def current_user

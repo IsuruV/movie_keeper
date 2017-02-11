@@ -1,6 +1,4 @@
 class MoviesController < ApplicationController
-  before_filter :authenticate_user_from_token!, except: [:in_theaters, :highly_rated, :most_popular, :search, :show, :by_title, :create, :index, :destroy]
-
   def create
     user_id = params[:user_id]
     @user = User.find_by(:fb_id => user_id)
@@ -18,7 +16,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @user = User.find_by(:fb_id=> user_params)
     @user.movies.where(movie_id: params[:movie_id]).delete
     respond_to do |format|
