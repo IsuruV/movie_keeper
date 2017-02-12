@@ -3,9 +3,10 @@ class UsersController < ApplicationController
   def create
     # binding.pry
     @user = User.find_or_create_by(user_params)
-    respond_to do |format|
-      format.json {render json: @user.to_json}
-    end
+    # respond_to do |format|
+    #   format.json {render json: @user.to_json}
+    # end
+    render json: @user.to_json
   end
 
   private
