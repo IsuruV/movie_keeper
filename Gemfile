@@ -40,8 +40,8 @@ gem 'rb-readline'
 
 gem 'mongoid'
 
-# gem 'devise'
-# gem 'jwt'
+gem 'devise'
+gem 'jwt'
 # gem 'mongo'
 gem 'bson_ext'
 
