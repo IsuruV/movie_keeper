@@ -150,4 +150,4 @@
 production:
   sessions:
     default:
-      uri: mongodb://admin:password@ds149329.mlab.com:49329/heroku_mmh2xgnj
+      uri: mongodb://admin:password@ds149059.mlab.com:49059/heroku_n0zk6g1d
