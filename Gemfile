@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'themoviedb'
+gem 'rails_12factor'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -40,8 +41,8 @@ gem 'rb-readline'
 
 gem 'mongoid'
 
-# gem 'devise'
-# gem 'jwt'
+gem 'devise'
+gem 'jwt'
 # gem 'mongo'
 gem 'bson_ext'
 

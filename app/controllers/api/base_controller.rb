@@ -1,6 +1,6 @@
 class Api::BaseController < ActionController::Base
   include ActionController::ImplicitRender
-  skip_before_filter :verify_authenticity_token, :only => [:update]
+  
   respond_to :json
   # before_filter :authenticate_user_from_token!
   protected

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  match '*path', to: 'application#cors_preflight_check', via: [:options]
-  
-  root '/' => "Works"
   get '/movies/in_theaters' => 'movies#in_theaters'
   get '/movies/highly_rated' => 'movies#highly_rated'
   get '/movies/most_popular' => 'movies#most_popular'
