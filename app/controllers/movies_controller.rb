@@ -49,9 +49,9 @@ class MoviesController < ApplicationController
     #     format.json {render json: @most_popular.popular.to_json}
     # end
     # render json: @most_popular.popular.to_json
-    render json:{
-      movies: @most_popular.popular.to_json
-   }
+    
+      render json: @most_popular.popular.to_json
+   
   end
 
   def search

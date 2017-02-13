@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user_from_token!, except: [:create]
+
   def create
     # binding.pry
     @user = User.find_or_create_by(user_params)

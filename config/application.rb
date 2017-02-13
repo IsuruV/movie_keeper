@@ -4,7 +4,6 @@ require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
-# require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
@@ -16,7 +15,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Mongoid.load! './config/mongoid.yml'
+# Mongoid.load! './config/mongoid.yml'
 
 module MoviesApi
   class Application < Rails::Application
@@ -35,3 +34,5 @@ module MoviesApi
 
   end
 end
+
+
